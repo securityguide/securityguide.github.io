@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Application Security</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="Web Application Security" />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md fixed-top">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link active" href="/webappsec/">Web Application Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/fundamentals/">Fundamentals</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/checklists/">Checklists</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/best-practices/">Best Practices</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/tools/">Tools</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/tutorials/">Tutorials</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/netsec/">Network Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/opsec/">Operations Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">Web Application Security</h1>
+          <h2 id="contents">Contents</h2>
+
+<ul class="content-menu"><li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/fundamentals/">Fundamentals</a>: The core concepts behind the gritty details of how web applications work and common ways that web applications are compromised.
+</li><li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/fundamentals/abusing-cookies.html">Abusing Cookies</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/fundamentals/abusing-filesystems.html">Abusing Filesystems</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/fundamentals/abusing-input.html">Abusing Input</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/fundamentals/other-tricks.html">Other Tricks</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/checklists/">Checklists</a>: Essential things to check before deploying your web application into production.
+</li><li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/checklists/generic-checklist.html">Generic</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/checklists/ruby-checklists/">Ruby</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/checklists/javascript-checklists/">Javascript</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/">Best Practices</a>: A guide to the best practices when writing web applications.
+</li><li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/input.html">Validate User Input</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/dependency-check.html">Dependency Checker</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/static-analysis.html">Static analysis</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/secrets-management.html">Secrets Management</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/access-controls.html">Access Controls</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/csp.html">Content Security Policy</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/environment-isolation.html">Environment Isolation</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/https.html">Enforce HTTPS</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/best-practices/logging.html">Logging</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/tools/">Tools</a>: Tools to help you write more secure web applications.
+</li><li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/tools/agnostic-tools/">Agnostic</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/tools/java-tools/">Java</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/tools/javascript-tools/">Javascript</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/tools/python-tools/">Python</a>
+</li>
+<li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/tools/ruby-tools/">Ruby</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/tutorials/">Tutorials</a>
+</li><li class="nav-level-1 ">
+  <a class="nav-level-1  " href="/webappsec/tutorials/ruby-saml.html">SAML with Ruby</a>
+</li></ul>
+
+<h2 id="tasks">Tasks</h2>
+
+<ul>
+  <li>Read the fundamentals</li>
+  <li>Work through the checklist for your platform</li>
+  <li>Read the best practices</li>
+  <li>Use the tool section as a resource</li>
+</ul>
+
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2017 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/webappsec/index.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Application Best Practices</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="A guide to the best practices when writing web applications." />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md fixed-top">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/webappsec/">Web Application Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/fundamentals/">Fundamentals</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/checklists/">Checklists</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link active" href="/webappsec/best-practices/">Best Practices</a>
+</li><li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/input.html">Validate User Input</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/dependency-check.html">Dependency Checker</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/static-analysis.html">Static analysis</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/secrets-management.html">Secrets Management</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/access-controls.html">Access Controls</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/csp.html">Content Security Policy</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/environment-isolation.html">Environment Isolation</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/https.html">Enforce HTTPS</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webappsec/best-practices/logging.html">Logging</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/tools/">Tools</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webappsec/tutorials/">Tutorials</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/netsec/">Network Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/opsec/">Operations Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">Web Application Best Practices</h1>
+          <ul class="content-menu"><li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/input.html">Validate User Input</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/dependency-check.html">Dependency Checker</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/static-analysis.html">Static analysis</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/secrets-management.html">Secrets Management</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/access-controls.html">Access Controls</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/csp.html">Content Security Policy</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/environment-isolation.html">Environment Isolation</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/https.html">Enforce HTTPS</a>
+</li>
+<li class="nav-level-0 ">
+  <a class="nav-level-0  " href="/webappsec/best-practices/logging.html">Logging</a>
+</li></ul>
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2017 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/webappsec/best-practices/index.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
