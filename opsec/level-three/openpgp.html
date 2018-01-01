@@ -93,28 +93,60 @@
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
           <h1 class="title">OpenPGP</h1>
-          <ul>
-  <li>OpenPGP
-    <ul>
-      <li><a href="https://ssd.eff.org/en/module/introduction-public-key-cryptography-and-pgp">Security Self-defense / An Introduction to Public Key Cryptography and PGP</a></li>
-      <li><a href="https://ssd.eff.org/en/module/how-use-pgp-linux">Security Self-defense / How to: Use PGP for Linux</a></li>
-      <li><a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x">Security Self-defense / How to: Use PGP for macOS</a></li>
-      <li><a href="https://ssd.eff.org/en/module/how-use-pgp-windows">Security Self-defense / How to: Use PGP for Windows</a></li>
-    </ul>
-  </li>
+          <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#about-openpgp">About OpenPGP</a></li>
+<li class="toc-entry toc-h1"><a href="#terminology">Terminology</a></li>
+<li class="toc-entry toc-h1"><a href="#tools">Tools</a></li>
+<li class="toc-entry toc-h1"><a href="#alternatives">Alternatives</a></li>
+<li class="toc-entry toc-h1"><a href="#see-also">See also</a></li>
+</ul><h1 id="about-openpgp">
+<a id="about-openpgp" class="anchor" href="#about-openpgp" aria-hidden="true"><span class="octicon octicon-link"></span></a>About OpenPGP</h1>
+
+<p>This is a highly technical and labor-intensive initiative to undertake, but is probably the most complete way to minimize any inadvertent disclosure of data through email. Email encryption hides all email content from any servers or network providers that pass your mail along. It will likely require inconvenience for your team and significant changes to staff practices, but it provides strong protection of sensitive information emailed within your organization (and, if it is relevant to you, far greater compliance with standards such as HIPAA). There are various ways to implement email encryption, but only some are truly “end to end,” meaning that you don’t have to trust any parties in the middle, and encryption and decryption only happens on the devices communicating with each other.</p>
+
+<p>The most common type of end-to-end encryption for email is called Pretty Good Privacy (PGP) and has been around for a long time. The open standard is called “OpenPGP” (not PGP).</p>
+
+<h1 id="terminology">
+<a id="terminology" class="anchor" href="#terminology" aria-hidden="true"><span class="octicon octicon-link"></span></a>Terminology</h1>
+
+<ul>
+  <li>Private Key: The private key is used to decrypt messages. This is the key that you must keep secret. This private key allows you to read incoming messages that people send you and to sign outgoing messages to attest that they really come from you.</li>
+  <li>Public Key: The public key is used to encrypt messages. This is the key that you hand out publicly to everyone. This key allows anyone to create a message that only the holder of the private key can read.</li>
+  <li>Fingerprint: In terms of message security, a fingerprint is an unique identifier for a particular public key.</li>
+  <li>Signature: Signatures are made by private keys to ensure <strong>authenticity</strong> of a message by allowing the recipient to verify the signature and gain confidence that the message really came from the private key they have associated with a particular person.</li>
+  <li>Encryption: Encryption is a method of ensuring <strong>confidentiality</strong> by hiding the contents of a message. Encrypting a message transforms the message so that it appears to be meaningless, but can still be restored to its original form by a person or device that possesses the right secret key. This limits who can access the information because without the right secret key, it should be impossible to reverse the encryption and recover the original information.</li>
 </ul>
 
-<p>:heavy_check_mark:      <strong>Use encryption, preferably “end to end,” to secure your email.</strong>
-:rocket: :rocket: :rocket: :rocket: :wrench: :wrench: :wrench: :wrench: :fire: :fire: :fire: :fire:
-<em>This is a highly technical and labor-intensive initiative to undertake, but is probably the most complete way to minimize any inadvertent disclosure of data through email. Email encryption hides all email content from any servers or network providers that pass your mail along. It will likely require inconvenience for your team and significant changes to staff practices, but it provides strong protection of sensitive information emailed within your organization (and, if it is relevant to you, far greater compliance with standards such as HIPAA). There are various ways to implement email encryption, but only some are truly “end to end,” meaning that you don’t have to trust any parties in the middle, and encryption and decryption only happens on the devices communicating with each other.</em></p>
+<h1 id="tools">
+<a id="tools" class="anchor" href="#tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tools</h1>
 
-<p><em>The most common type of end-to-end encryption is called Pretty Good Privacy (PGP) and has been around for a long time. Consequently there are a lot of ways to use this type of encryption, and it works across many platforms. (It also lacks the ease and strength of some other, more modern encryption schemes.) One major tool for for using PGP encryption with email is the <a href="https://www.mozilla.org/en-US/thunderbird/">Mozilla Thunderbird email client</a> (https://www.mozilla.org/en-US/thunderbird/) and the associated <a href="https://www.enigmail.net/home/index.php">Enigmail plugin</a> (https://www.enigmail.net/home/index.php), which works on Windows (with the addition of <a href="https://gpg4win.org/">GPG4Win</a> (https://gpg4win.org/), Mac, and Linux). You can find a guide for the Windows setup at <a href="https://securityinabox.org/en/guide/thunderbird/windows">https://securityinabox.org/en/guide/thunderbird/windows</a>. OSX’s built-in Mail program and the open-source add on <a href="https://gpgtools.org">GPGTools</a> (https://gpgtools.org) is also a workable toolset for using PGP-encrypted email on Macs. Microsoft Outlook works best with a commercial add-on called <a href="https://www.giepa.de/products/gpg4o/?lang=en">gpg4o</a> (https://www.giepa.de/products/gpg4o/?lang=en) to use PGP encryption with Microsoft Exchange. <a href="https://www.mailvelope.com">Mailvelope</a> https://www.mailvelope.com) is a powerful and well-audited PGP add-on for web browsers that allows you to use PGP encryption with almost any webmail service, including Gmail. Because of its position inside a web browser, its security is generally less assured than the other PGP options above, but is adequate for many organizations, especially when coupled with strong web browser profile controls and careful use of browser extensions as well as other safe browsing practices. Note that as of mid-2017, use of Mailvelope in Firefox is not recommended due to a security vulnerability discovered in it. If you want to use Mailvelope with Firefox, see <a href="https://www.mailvelope.com/en/blog/security-warning-mailvelope-in-firefox">this blog post</a> (https://www.mailvelope.com/en/blog/security-warning-mailvelope-in-firefox) for details of how to do so as safely as possible.</em></p>
+<ul>
+  <li>Thunderbird: One common tool for for using OpenPGP encryption with email is the <a href="https://www.mozilla.org/en-US/thunderbird/">Mozilla Thunderbird email client</a> (https://www.mozilla.org/en-US/thunderbird/) and the associated <a href="https://www.enigmail.net/home/index.php">Enigmail plugin</a> (https://www.enigmail.net/home/index.php), which works on Windows (with the addition of <a href="https://gpg4win.org/">GPG4Win</a> (https://gpg4win.org/), Mac, and Linux). You can find a guide for the Windows setup at <a href="https://securityinabox.org/en/guide/thunderbird/windows">https://securityinabox.org/en/guide/thunderbird/windows</a>.</li>
+  <li>macOS Mail: the macOS built-in Mail program and the open-source add on <a href="https://gpgtools.org">GPGTools</a> (https://gpgtools.org) is also a workable toolset for using OpenPGP email on Macs.</li>
+  <li>Outlook: Microsoft Outlook works best with a commercial add-on called <a href="https://www.giepa.de/products/gpg4o/?lang=en">gpg4o</a> (https://www.giepa.de/products/gpg4o/?lang=en) to use OpenPGP encryption with Microsoft Exchange.</li>
+  <li>
+<a href="https://www.mailvelope.com">Mailvelope</a> https://www.mailvelope.com) is a powerful and well-audited OpenPGP add-on for web browsers that allows you to use OpenPGP encryption with almost any webmail service, including Gmail. Because of its position inside a web browser, its security is generally less assured than the other OpenPGP options above, but is adequate for many organizations, especially when coupled with strong web browser profile controls and careful use of browser extensions as well as other safe browsing practices.</li>
+</ul>
 
-<p><em>For organizations with more resources, S/MIME is an alternate encryption scheme that works well with a Microsoft Exchange/Outlook environment or with Gmail by installing the <a href="https://www.penango.com">Penango plug-in</a> (https://www.penango.com) or using <a href="https://support.google.com/a/answer/6374496">Google’s native offering</a> (https://support.google.com/a/answer/6374496), which requires use of the G Suite Enterprise paid services.</em></p>
+<h1 id="alternatives">
+<a id="alternatives" class="anchor" href="#alternatives" aria-hidden="true"><span class="octicon octicon-link"></span></a>Alternatives</h1>
 
-<p><em>As alternatives, several third-party-managed encryption tools for email exist. One popular such service is <a href="https://virtru.com">Virtru</a> (https://virtru.com); it is available for Gmail and works best if used only with Gmail users. If you are able to transition your email entirely to their platform, <a href="https://protonmail.com/">ProtonMail</a> (https://protonmail.com/) is an open source end-to-end encrypted email provider that has implemented common PGP encryption in a package that is easier to use than the toolsets named above and solves a lot of key management problems to make secure email more seamless for users.</em></p>
+<p>For organizations with more resources, S/MIME is an alternate encryption scheme that works well with a Microsoft Exchange/Outlook environment or with Gmail by installing the <a href="https://www.penango.com">Penango plug-in</a> (https://www.penango.com) or using <a href="https://support.google.com/a/answer/6374496">Google’s native offering</a> (https://support.google.com/a/answer/6374496), which requires use of the G Suite Enterprise paid services.</p>
 
-<p><em>Google’s S/MIME option, ProtonMail and Virtru are end-to-end encryption offerings that function with a strong trust dependency on the vendor to produce, manage, and swap encryption keys for seamless emailing. If you are interested in these solutions, be aware that you are entering into a high-trust relationship with the vendor. If wanting to implement any encryption scheme mentioned here for your email, you will need to talk to your technical support provider and be prepared to invest time and resources into planning, implementation, and training.</em></p>
+<p>As alternatives, several third-party-managed encryption tools for email exist. One popular such service is <a href="https://virtru.com">Virtru</a> (https://virtru.com); it is available for Gmail and works best if used only with Gmail users. If you are able to transition your email entirely to their platform, <a href="https://protonmail.com/">ProtonMail</a> (https://protonmail.com/) is an open source end-to-end encrypted email provider that has implemented common PGP encryption in a package that is easier to use than the toolsets named above and solves a lot of key management problems to make secure email more seamless for users.</p>
+
+<p>Google’s S/MIME option, ProtonMail and Virtru are end-to-end encryption offerings that function with a strong trust dependency on the vendor to produce, manage, and swap encryption keys for seamless emailing. If you are interested in these solutions, be aware that you are entering into a high-trust relationship with the vendor. If wanting to implement any encryption scheme mentioned here for your email, you will need to talk to your technical support provider and be prepared to invest time and resources into planning, implementation, and training.</p>
+
+<h1 id="see-also">
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See also</h1>
+
+<ul>
+  <li><a href="https://ssd.eff.org/en/module/introduction-public-key-cryptography-and-pgp">Security Self-defense / An Introduction to Public Key Cryptography and PGP</a></li>
+  <li><a href="https://ssd.eff.org/en/module/how-use-pgp-linux">Security Self-defense / How to: Use PGP for Linux</a></li>
+  <li><a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x">Security Self-defense / How to: Use PGP for macOS</a></li>
+  <li><a href="https://ssd.eff.org/en/module/how-use-pgp-windows">Security Self-defense / How to: Use PGP for Windows</a></li>
+</ul>
+
 
           <div class="footer row">
   <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
