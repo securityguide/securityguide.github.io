@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email Safety</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="Simple tips for using email safely." />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/webappsec/">Web Application Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/netsec/">Network Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/opsec/">Operations Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/opsec/level-one/">Level One</a>
+</li><li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-one/passwords.html">Passwords</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link active" href="/opsec/level-one/email.html">Email Safety</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-one/device-encryption.html">Device Encryption</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-one/better-browsing.html">Better Browsing</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-one/software.html">Software Best Practices</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/opsec/level-two/">Level Two</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/opsec/level-three/">Level Three</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">Email Safety</h1>
+          <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#never-trust-the-sender">Never trust the sender</a></li>
+<li class="toc-entry toc-h1"><a href="#avoid-links-in-emails">Avoid links in emails</a></li>
+<li class="toc-entry toc-h1"><a href="#never-log-in-after-clicking-a-link">Never log in after clicking a link</a></li>
+<li class="toc-entry toc-h1"><a href="#avoid-attachments">Avoid attachments</a></li>
+<li class="toc-entry toc-h1"><a href="#see-also">See also</a></li>
+</ul><h1 id="never-trust-the-sender">
+<a id="never-trust-the-sender" class="anchor" href="#never-trust-the-sender" aria-hidden="true"><span class="octicon octicon-link"></span></a>Never trust the sender</h1>
+
+<p>The primary reason that email is the source of most attacks in an organization is that there is no way to verify the identity of the “From” address.</p>
+
+<p>Let’s repeat that: Anyone can spoof the “From” address and can make any email appear to come from anyone else.</p>
+
+<p>Because it is difficult to verify the sender, your inbox is a common source of <strong>Phishing Attacks</strong> and <strong>Malware Attacks</strong>.</p>
+
+<ul>
+  <li>
+<strong>Phishing Attack</strong> is when someone sends an email claiming to be an entity they are not, and uses this deception to get information. They can be after social security numbers, bank information, passwords, or other sensitive information.</li>
+  <li>
+<strong>Malware Attack</strong> is when an attacker attempts to trick you into installing malicious software on your computer when you open an attachment or click on a link.</li>
+</ul>
+
+<p>Generally, anything unexpected in your email should be looked at with suspicion. Be wary of any messages that ask you to do something, including clicking a link, opening an attachment, or emailing back information.</p>
+
+<p>If someone has broken into your account, you may see reply messages you don’t understand, additional sent items, new folders or filters being created, or other changes to settings. Suspicious emails or account behavior should be reported to a technical support person and you should preemptively change your password.</p>
+
+<h1 id="avoid-links-in-emails">
+<a id="avoid-links-in-emails" class="anchor" href="#avoid-links-in-emails" aria-hidden="true"><span class="octicon octicon-link"></span></a>Avoid links in emails</h1>
+
+<p>Links, often innocuous looking or even hidden within emails, are a major way adversaries get rogue software inside networks.</p>
+
+<p>The best practice is to never click links in emails. If you must click a link, follow this checklist:</p>
+
+<ul>
+  <li>Are you expecting this email? Even if the “From” address appears to belong to someone you know, you should be very cautious when you receive an unexpected email.</li>
+  <li>Can you manually type the link instead of clicking on it? What you see in the link might not be what the link really is. Domain names can contain “homographs”, or different characters that look the same (e.g. the number “0” and an uppercase “O”, or between Latin and Cyrillic charsets). That link that appears to be <a href="https://thoughtworks.com">https://thoughtworks.com</a> might actually point to an attacker’s website at <a href="https://thoughtw%D0%BErks.com">https://thoughtwоrks.com</a> (the second link uses a Cyrillic letter for the second “o”). The safest way for users avoid this attack is to never copy URLs from unsafe sources and always type URLs to the address bar directly.</li>
+  <li>Do you recognize the domain? In most email programs, as on the web, hovering over a link displays the URL it points to. If the link’s destination is unexpected or unfamiliar, check with the sender to make sure the email is legitimate. The link should always start with “https://”. If it starts with “data://”, then it is certainly a phishing attack.</li>
+</ul>
+
+<p>Never click on links or open files from unknown senders or in otherwise suspicious emails. Unlike people you know and are working with, someone you don’t know will never send you a file that you actually need; if a link from an unknown sender actually contains useful information, you will be able to access it via another, more trusted method (for example, a web search).</p>
+
+<h1 id="never-log-in-after-clicking-a-link">
+<a id="never-log-in-after-clicking-a-link" class="anchor" href="#never-log-in-after-clicking-a-link" aria-hidden="true"><span class="octicon octicon-link"></span></a>Never log in after clicking a link</h1>
+
+<p>If you do click a link in your email, it is very important to not log in to the website that is opened. If the website prompts you to log in, you should instead follow these steps:</p>
+
+<ol>
+  <li>Open a new tab in the browser, and type the domain of the website manually.</li>
+  <li>Using this new tab, log in to the website.</li>
+  <li>Go back to your email and click on the link again.</li>
+  <li>When this link opens, it should not require you to log in. If it does require that you log in, then the email is probably a phishing attack.</li>
+</ol>
+
+<p>This practice will protect you from most phishing attacks.</p>
+
+<h1 id="avoid-attachments">
+<a id="avoid-attachments" class="anchor" href="#avoid-attachments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Avoid attachments</h1>
+
+<p>Email attachments present several risks, including their use as a mechanism for phishing. They are not protected from being viewed or altered between recipients, so you cannot ensure that the document you send is the same one that the recipient receives. A malicious server between you and the sender could replace it with any program or file they want, including a virus or malware. Additionally, file attachments tend to remain in recipients’ email in-boxes, where they are harder to control. For example, if you filled out an order form using your organizational credit card, and emailed it to a vendor as a PDF, someone who breached their email account would have access to a document containing your credit card information for as long as it was not deleted from the server.</p>
+
+<p>A better practice than email attachments is to have files on a server and send links to documents instead of the documents themselves. Ideally these links lead to locations that themselves are protected by passwords or other authentication, or are temporary and expire soon after use. These links can be easily generated in almost all file-storage systems, whether they use servers in your office (such as a Windows file server) or on the web (such as Google Drive, Box, or Dropbox).</p>
+
+<p>For added security, you can share encrypted files via temporary links by uploading files to <a href="https://share.riseup.net">https://share.riseup.net</a>.</p>
+
+<h1 id="see-also">
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See also</h1>
+
+<ul>
+  <li><a href="https://ssd.eff.org/en/module/how-avoid-phishing-attacks">Security Self-defense / How to Avoid Phishing Attacks</a></li>
+  <li><a href="https://sec.eff.org/topics/phishing-and-malware">Security Education Companion / Phishing and Malware</a></li>
+  <li><a href="https://securityinabox.org/en/guide/malware/">Security In-a-box / Protect Your Device From Malware and Hackers</a></li>
+  <li><a href="https://securityinabox.org/en/guide/secure-communication/">Security In-a-box / Keep Your Online Communications Private</a></li>
+  <li><a href="https://securityplanner.org/#/tool/spot-suspicious-emails">Security Planner / Spot Suspicious Emails</a></li>
+</ul>
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/opsec/level-one/email.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

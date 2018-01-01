@@ -6431,9 +6431,6 @@ a.text-dark:focus, a.text-dark:hover {
   .navbar a#site-title {
     color: white; }
 
-body {
-  padding-top: 5rem; }
-
 #site-title {
   font-weight: lighter;
   font-size: 32px; }
@@ -6470,12 +6467,10 @@ li.toc-entry:before {
   content: counters(item,".") " ";
   counter-increment: item; }
 
+li.toc-entry a {
+  padding-left: 0.5rem; }
+
 .sidebar {
-  position: fixed;
-  top: 5rem;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
   padding: 0px;
   overflow-x: hidden;
   overflow-y: auto;

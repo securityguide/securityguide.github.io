@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OpenPGP</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="OpenPGP" />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/webappsec/">Web Application Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/netsec/">Network Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/opsec/">Operations Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/opsec/level-one/">Level One</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/opsec/level-two/">Level Two</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/opsec/level-three/">Level Three</a>
+</li><li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-three/physical-security.html">Physical Device Security</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-three/second-factor-authentication.html">Second Factor Authentication</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-three/erasing-data.html">Erasing Data</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/opsec/level-three/tor.html">Tor</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link active" href="/opsec/level-three/openpgp.html">OpenPGP</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">OpenPGP</h1>
+          <ul>
+  <li>OpenPGP
+    <ul>
+      <li><a href="https://ssd.eff.org/en/module/introduction-public-key-cryptography-and-pgp">Security Self-defense / An Introduction to Public Key Cryptography and PGP</a></li>
+      <li><a href="https://ssd.eff.org/en/module/how-use-pgp-linux">Security Self-defense / How to: Use PGP for Linux</a></li>
+      <li><a href="https://ssd.eff.org/en/module/how-use-pgp-mac-os-x">Security Self-defense / How to: Use PGP for macOS</a></li>
+      <li><a href="https://ssd.eff.org/en/module/how-use-pgp-windows">Security Self-defense / How to: Use PGP for Windows</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>:heavy_check_mark:      <strong>Use encryption, preferably “end to end,” to secure your email.</strong>
+:rocket: :rocket: :rocket: :rocket: :wrench: :wrench: :wrench: :wrench: :fire: :fire: :fire: :fire:
+<em>This is a highly technical and labor-intensive initiative to undertake, but is probably the most complete way to minimize any inadvertent disclosure of data through email. Email encryption hides all email content from any servers or network providers that pass your mail along. It will likely require inconvenience for your team and significant changes to staff practices, but it provides strong protection of sensitive information emailed within your organization (and, if it is relevant to you, far greater compliance with standards such as HIPAA). There are various ways to implement email encryption, but only some are truly “end to end,” meaning that you don’t have to trust any parties in the middle, and encryption and decryption only happens on the devices communicating with each other.</em></p>
+
+<p><em>The most common type of end-to-end encryption is called Pretty Good Privacy (PGP) and has been around for a long time. Consequently there are a lot of ways to use this type of encryption, and it works across many platforms. (It also lacks the ease and strength of some other, more modern encryption schemes.) One major tool for for using PGP encryption with email is the <a href="https://www.mozilla.org/en-US/thunderbird/">Mozilla Thunderbird email client</a> (https://www.mozilla.org/en-US/thunderbird/) and the associated <a href="https://www.enigmail.net/home/index.php">Enigmail plugin</a> (https://www.enigmail.net/home/index.php), which works on Windows (with the addition of <a href="https://gpg4win.org/">GPG4Win</a> (https://gpg4win.org/), Mac, and Linux). You can find a guide for the Windows setup at <a href="https://securityinabox.org/en/guide/thunderbird/windows">https://securityinabox.org/en/guide/thunderbird/windows</a>. OSX’s built-in Mail program and the open-source add on <a href="https://gpgtools.org">GPGTools</a> (https://gpgtools.org) is also a workable toolset for using PGP-encrypted email on Macs. Microsoft Outlook works best with a commercial add-on called <a href="https://www.giepa.de/products/gpg4o/?lang=en">gpg4o</a> (https://www.giepa.de/products/gpg4o/?lang=en) to use PGP encryption with Microsoft Exchange. <a href="https://www.mailvelope.com">Mailvelope</a> https://www.mailvelope.com) is a powerful and well-audited PGP add-on for web browsers that allows you to use PGP encryption with almost any webmail service, including Gmail. Because of its position inside a web browser, its security is generally less assured than the other PGP options above, but is adequate for many organizations, especially when coupled with strong web browser profile controls and careful use of browser extensions as well as other safe browsing practices. Note that as of mid-2017, use of Mailvelope in Firefox is not recommended due to a security vulnerability discovered in it. If you want to use Mailvelope with Firefox, see <a href="https://www.mailvelope.com/en/blog/security-warning-mailvelope-in-firefox">this blog post</a> (https://www.mailvelope.com/en/blog/security-warning-mailvelope-in-firefox) for details of how to do so as safely as possible.</em></p>
+
+<p><em>For organizations with more resources, S/MIME is an alternate encryption scheme that works well with a Microsoft Exchange/Outlook environment or with Gmail by installing the <a href="https://www.penango.com">Penango plug-in</a> (https://www.penango.com) or using <a href="https://support.google.com/a/answer/6374496">Google’s native offering</a> (https://support.google.com/a/answer/6374496), which requires use of the G Suite Enterprise paid services.</em></p>
+
+<p><em>As alternatives, several third-party-managed encryption tools for email exist. One popular such service is <a href="https://virtru.com">Virtru</a> (https://virtru.com); it is available for Gmail and works best if used only with Gmail users. If you are able to transition your email entirely to their platform, <a href="https://protonmail.com/">ProtonMail</a> (https://protonmail.com/) is an open source end-to-end encrypted email provider that has implemented common PGP encryption in a package that is easier to use than the toolsets named above and solves a lot of key management problems to make secure email more seamless for users.</em></p>
+
+<p><em>Google’s S/MIME option, ProtonMail and Virtru are end-to-end encryption offerings that function with a strong trust dependency on the vendor to produce, manage, and swap encryption keys for seamless emailing. If you are interested in these solutions, be aware that you are entering into a high-trust relationship with the vendor. If wanting to implement any encryption scheme mentioned here for your email, you will need to talk to your technical support provider and be prepared to invest time and resources into planning, implementation, and training.</em></p>
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/opsec/level-three/openpgp.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
