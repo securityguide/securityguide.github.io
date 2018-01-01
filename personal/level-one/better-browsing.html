@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Better Browsing</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="Adjust your web browser for greater security." />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/webapps/">Web Application Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/infrastructure/">Infrastructure Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/personal/">Personal Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-one/">Level One</a>
+</li><li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/passwords.html">Passwords</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/email.html">Email Safety</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/device-encryption.html">Device Encryption</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link active" href="/personal/level-one/better-browsing.html">Better Browsing</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/software.html">Software Best Practices</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-two/">Level Two</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-three/">Level Three</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">Better Browsing</h1>
+          <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#keep-your-browser-up-to-date">Keep your browser up to date</a></li>
+<li class="toc-entry toc-h1"><a href="#adjust-your-settings">Adjust your settings</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#disable-third-party-cookies">Disable third-party cookies</a></li>
+<li class="toc-entry toc-h2"><a href="#clear-cookies-on-exit">Clear cookies on exit</a></li>
+<li class="toc-entry toc-h2"><a href="#disable-flash">Disable Flash</a></li>
+<li class="toc-entry toc-h2"><a href="#disable-java">Disable Java</a></li>
+<li class="toc-entry toc-h2"><a href="#change-default-search-engine">Change default search engine</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#browser-extensions">Browser extensions</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#essential-extensions">Essential extensions</a></li>
+<li class="toc-entry toc-h2"><a href="#advanced-extensions">Advanced extensions</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#see-also">See also</a></li>
+</ul><h1 id="keep-your-browser-up-to-date">
+<a id="keep-your-browser-up-to-date" class="anchor" href="#keep-your-browser-up-to-date" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keep your browser up to date</h1>
+
+<p>All four major web browsers, Firefox, Chrome, Microsoft Edge, and Safari, have experienced severe security flaws in the recent past, so you should make sure you are using the most up-to-date version, whichever one you choose.</p>
+
+<p>If you have install the web browser through the offical application store for your operating system, then the store should take care of updates.</p>
+
+<p>Otherwise, the browser will alert you when a new version of the application is available. Do not ignore these alerts! Yes, new applications are not always better or more fun to use, but when it comes to web browers it is vitally important to be running the latest release.</p>
+
+<h1 id="adjust-your-settings">
+<a id="adjust-your-settings" class="anchor" href="#adjust-your-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust your settings</h1>
+
+<h2 id="disable-third-party-cookies">
+<a id="disable-third-party-cookies" class="anchor" href="#disable-third-party-cookies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disable third-party cookies</h2>
+
+<p>Third-party cookies are tracking identifiers used by advertising networks to track your behavior as you browse from website to website. They are an abomination and serve no legitimate purpose.</p>
+
+<ul>
+  <li>Firefox: Preferences &gt; Privacy &gt; Accept third-party cookies &gt; Never.</li>
+  <li>Chrome: Settings &gt; Show advanced settings… &gt; Content settings &gt; Block third-party cookies and site data.</li>
+</ul>
+
+<h2 id="clear-cookies-on-exit">
+<a id="clear-cookies-on-exit" class="anchor" href="#clear-cookies-on-exit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clear cookies on exit</h2>
+
+<p>Most browsers keep cookies around much longer than necessary. It is best to configure your browser to delete cookies when you quit the browser.</p>
+
+<ul>
+  <li>Firefox: Preferences &gt; Privacy &gt; Keep until &gt; I close Firefox.</li>
+  <li>Chrome: Settings &gt; Show advanced settings… &gt; Content settings &gt; Keep local data only until you quit your browser.</li>
+</ul>
+
+<h2 id="disable-flash">
+<a id="disable-flash" class="anchor" href="#disable-flash" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disable Flash</h2>
+
+<p>Flash is a plug-in from Adobe that has been the cause an endless stream of security problems. We highly recommend that you remove or disable Flash.</p>
+
+<ul>
+  <li>Firefox: Add-ons &gt; Plugins &gt; Flash &gt; Never Activate.</li>
+  <li>Chrome: Settings &gt; Show advanced settings… &gt; Content settings &gt; Do not run plugins by default.</li>
+</ul>
+
+<h2 id="disable-java">
+<a id="disable-java" class="anchor" href="#disable-java" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disable Java</h2>
+
+<p>Java also has many security problems and you probably have never used it. Remove or disable it with haste.</p>
+
+<ul>
+  <li>Firefox: Add-ons &gt; Plugins &gt; Java &gt; Never Activate.</li>
+  <li>Chrome: Settings &gt; Show advanced settings… &gt; Content settings &gt; Do not run plugins by default.</li>
+</ul>
+
+<h2 id="change-default-search-engine">
+<a id="change-default-search-engine" class="anchor" href="#change-default-search-engine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change default search engine</h2>
+
+<p>While you are adjusting your setting, take the opportunity to change your default search engine to <a href="https://duckduckgo.com">duckduckgo.com</a>. Unlike Google and Bing, DuckDuckGo does not track your searches in order to sell your behavior to advertisers. The best way to avoid leaking your data to an attacker is to ensure that the data is never stored in the first place. See instructions for <a href="https://duck.co/help/desktop/adding-duckduckgo-to-your-browser">desktop browsers</a> or <a href="https://duck.co/help/mobile">mobile browsers</a>.</p>
+
+<h1 id="browser-extensions">
+<a id="browser-extensions" class="anchor" href="#browser-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser extensions</h1>
+
+<p>The extensions in this list work for both Firefox and Chrome, unless otherwise noted.</p>
+
+<h2 id="essential-extensions">
+<a id="essential-extensions" class="anchor" href="#essential-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Essential extensions</h2>
+
+<p>These are absolutely essential browser extensions that everyone should be using all the time. They are stable, open source, and rarely cause websites to break.</p>
+
+<dl>
+  <dt><a href="https://github.com/gorhill/uBlock">uBlock Origin</a></dt>
+  <dd>uBlock prevents most advertisements and tracking networks. It is similar to Adblock Plus or Disconnect but works better and is much faster. Install for <a href="https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm">Chrome</a>, <a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/">Firefox</a>.</dd>
+  <dt><a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a></dt>
+  <dd>HTTPS Everywhere will automatically switch to secure TLS connections whenever the website supports it. This helps to protect against surveillance of the content of your web browsing, although it does not hide which websites you are visiting (unless you also run <a href="/personal/level-three/tor.html">Tor</a> or a <a href="/personal/level-two/vpn.html">VPN</a>).</dd>
+  <dt><a href="https://www.eff.org/privacybadger">Privacy Badger</a></dt>
+  <dd>Privacy Badger dynamically detects attempts to track your browsing behavior and blocks content from these trackers. Privacy Badger is not designed to stop ads, so it is not a replacement for uBlock, but it includes some security features that uBlock (in default mode) does not have.</dd>
+</dl>
+
+<p>Usage notes:</p>
+
+<ul>
+  <li>Leaking IP addresses: All browsers will leak your real IP address when using audio or video conferencing. If you use a VPN or Tor with audio or video chat, then you should open the uBlock settings and enable the option that prevents WebRTC from leaking your real IP address.</li>
+  <li>uBlock advanced mode: If you run uBlock in <a href="https://github.com/gorhill/uBlock/wiki/Advanced-user-features">advanced mode</a>, you should not also run Privacy Badger.</li>
+</ul>
+
+<h2 id="advanced-extensions">
+<a id="advanced-extensions" class="anchor" href="#advanced-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced extensions</h2>
+
+<p>These extensions are for advanced users because they are complicated to use or cause many websites to malfunction.</p>
+
+<p>These extensions attempt to overcome basic privacy flaws in how web browsers work. However, many websites rely on these privacy flaws for basic functionality, so attempts to fix these problems can often make a website stop working.</p>
+
+<p>Some of these privacy flaws include:</p>
+
+<ul>
+  <li>
+<strong>HTTP Referrer:</strong> When you click a link, your browser sends to the new website the location of the old website. Because sensitive or personally identifying information might be included in the URL of a particular page, the HTTP Referrer should be disabled. You can only do this with an extension.</li>
+  <li>
+<strong>HTTP User-Agent:</strong> Your web browser sends a special “User-Agent” string to every website that it visits. This string contains a lot of uncommon information that can be used, in combination with other data, to uniquely identify your traffic. There is little point in this browser fingerprint these days, and it is better to use a generic value, such as the one used by the Tor Browser.</li>
+  <li>
+<strong>HTML5 Canvas:</strong> Many websites have started to use the HTML5 Canvas to uniquely fingerprint your browser and track your behavior. There is currently no way to disable this, although some new extensions make a crude attempt.</li>
+  <li>
+<strong>JavaScript:</strong> JavaScript is essential for most websites these days, but there are times when you may wish to disable it. When JavaScript is enabled, it is much easier for a website to fingerprint your browser and track your behavior. Also, most browser security vulnerabilities are caused by JavaScript.</li>
+</ul>
+
+<p>For Firefox:</p>
+
+<ul>
+  <li>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/self-destructing-cookies/">Self Destructing Cookies (Firefox)</a> will clean out the cookies for a website when all the tabs for that site have been closed (rather than requiring that you restart the browser).</li>
+  <li>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/umatrix/">µMatrix</a> allows you to selectively block Javascript, plugins or other resources and control third-party resources. It also features extensive privacy features like user-agent masquerading, referering blocking and so on. It effectively replaces NoScript and RequestPolicy.</li>
+  <li>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/">User-Agent Switcher</a> will allow you to modify the HTTP User-Agent.</li>
+  <li>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/">Canvas Fingerprint Blocker</a> will allow you to disable HTML5 canvas support for particular websites.</li>
+</ul>
+
+<p>For Chrome:</p>
+
+<ul>
+  <li>
+<a href="https://chrome.google.com/webstore/detail/%C2%B5matrix/ogfcmafjalglgifnmanfmnieipoejdcf">µMatrix</a> allows you to selectively block Javascript, plugins or other resources and control third-party resources. It also features extensive privacy features like user-agent masquerading, referering blocking and so on. It effectively replaces NoScript and RequestPolicy.</li>
+  <li>
+<a href="https://chrome.google.com/webstore/detail/user-agent-switcher/ffhkkpnppgnfaobgihpdblnhmmbodake">User-Agent Switcher</a> will allow you to modify the HTTP User-Agent.</li>
+  <li>
+<a href="https://chrome.google.com/webstore/detail/canvasfingerprintblock/ipmjngkmngdcdpmgmiebdmfbkcecdndc">CanvasFingerPrintBlock</a> will block most HTML5 Canvas fingerprinting (not open source).</li>
+</ul>
+
+<h1 id="see-also">
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See also</h1>
+
+<ul>
+  <li><a href="https://sec.eff.org/topics/https-everywhere-and-privacy-badger">Security Education Companion / HTTPS Everywhere and Privacy Badger</a></li>
+  <li><a href="https://securityplanner.org/#/tool/https-everywhere">Security Planner / HTTPS Everywhere</a></li>
+  <li><a href="https://securityplanner.org/#/tool/check-website-names">Security Planner / Check Website Names</a></li>
+  <li><a href="https://securityplanner.org/#/tool/privacy-badger">Security Planner / Privacy Badger</a></li>
+</ul>
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/personal/level-one/better-browsing.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

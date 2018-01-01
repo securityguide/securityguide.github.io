@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Device Settings</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="Device Settings" />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/webapps/">Web Application Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/infrastructure/">Infrastructure Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/personal/">Personal Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-one/">Level One</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-two/">Level Two</a>
+</li><li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link active" href="/personal/level-two/device-settings.html">Device Settings</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-two/cloud-settings.html">Cloud Settings</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-two/backups.html">Backups</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-two/end-to-end.html">Encrypted Communications</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-two/vpn.html">VPN</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-three/">Level Three</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">Device Settings</h1>
+          <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#set-devices-to-lock-themselves">Set devices to lock themselves</a></li>
+<li class="toc-entry toc-h1"><a href="#turn-off-built-in-file-sharing">Turn off built-in file sharing</a></li>
+<li class="toc-entry toc-h1"><a href="#turn-on-firewall">Turn on firewall</a></li>
+<li class="toc-entry toc-h1"><a href="#see-also">See Also</a></li>
+</ul><h1 id="set-devices-to-lock-themselves">
+<a id="set-devices-to-lock-themselves" class="anchor" href="#set-devices-to-lock-themselves" aria-hidden="true"><span class="octicon octicon-link"></span></a>Set devices to lock themselves</h1>
+
+<p><strong>What?</strong></p>
+
+<p>Always set up a long (8 numbers or more) PIN code or complex password (longer than 12 characters) to log in to any device–computer, phone, or tablet.</p>
+
+<p><strong>Why?</strong></p>
+
+<p>This ensures that a lost or stolen device is inaccessible through its screen and the hardware remains encrypted. Use the screen timeout feature of your device and require your password or PIN to wake it back up to ensure that your information and your accounts are protected even if the device is found while turned on.</p>
+
+<p><strong>How?</strong></p>
+
+<ul>
+  <li>macOS: <strong>Apple</strong> menu &gt; <strong>System Preferences</strong> &gt; <strong>Security &amp; Privacy</strong> &gt; <strong>General</strong>, then select <strong>Require password</strong>.</li>
+  <li>Windows:</li>
+  <li>Android: <strong>Settings</strong> &gt; <strong>Lock screen</strong> &gt; <strong>Select screen lock</strong> (varies for different Android versions).</li>
+  <li>iOS:</li>
+</ul>
+
+<p>The shorter the screen timeout period, the shorter the amount of time your device is vulnerable–so choose as short a time as you can while still being able to do your work.</p>
+
+<p>If stepping away from a device, manually lock the screen. Nearly every computer operating system has a keyboard shortcut or other quick way to lock a device (look it up in the relevant documentation or ask your technical support provider).</p>
+
+<p><strong>Caveats</strong></p>
+
+<p>Public spaces: Be aware when entering a PIN or password in public spaces to be sure nobody malicious is watching and that your keystrokes are not being recorded on camera.</p>
+
+<p>Biometrics: For mobile devices, biometric unlocking mechanisms (for example, fingerprints or facial recognition), swipe patterns, and other locking mechanisms are becoming more common, and are generally easier to use than complex passwords and long PINs. However, they can be more easily bypassed by, for example, grabbing your wrist and forcing your thumb into the button, holding your phone up to your face, or looking at the pattern of skin oils on your screen to see a swipe pattern. For these reasons they are not recommended. This may change as implementations improve.</p>
+
+<h1 id="turn-off-built-in-file-sharing">
+<a id="turn-off-built-in-file-sharing" class="anchor" href="#turn-off-built-in-file-sharing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Turn off built-in file sharing</h1>
+
+<p><strong>What?</strong></p>
+
+<p><strong>Why?</strong></p>
+
+<p>Although handy for sharing files with peers, the built-in file sharing functionality on your device is vulnerable to abuse or accidental information leakage, especially on simple networks like one finds in cafés or on airplanes, which don’t provide host isolation (the lack of host isolation means that any device using the wireless can connect to any other device). It is preferable to set up alternate tools and practices for sharing files, such as a central file repository in your office or a an Internet-based file service.*</p>
+
+<p><strong>How?</strong></p>
+
+<p><em>To turn off file sharing on a Mac, go to Apple menu&gt;System Preferences, then click Sharing and make sure all the boxes are unchecked. Also disable AirDrop on your computer by going to the Finder, and choosing AirDrop under the Go menu. When the window comes up, you will see the phrase “Allow me to be discovered by” with a dropdown menu for completion. Choose “No One” from this dropdown. On an iOS device, select “Receiving Off” in the Control Center’s AirDrop settings. See <a href="https://support.microsoft.com/en-us/kb/307874">this article</a> (https://support.microsoft.com/en-us/kb/307874) for turning off file sharing on a Windows computer.</em></p>
+
+<p><em>Recognize that if you are currently using any built-in file sharing functionality to share files inside an office, doing this will disrupt current work practices.</em></p>
+
+<h1 id="turn-on-firewall">
+<a id="turn-on-firewall" class="anchor" href="#turn-on-firewall" aria-hidden="true"><span class="octicon octicon-link"></span></a>Turn on firewall</h1>
+
+<p><strong>What?</strong></p>
+
+<p><strong>Why?</strong></p>
+
+<p><strong>How?</strong></p>
+
+<ul>
+  <li>macOS: <a href="https://securityplanner.org/#/tool/mac-firewall">Security Planner / Mac Firewall</a>
+</li>
+  <li>Windows: <a href="https://securityplanner.org/#/tool/glasswire-firewall">Security Planner / Glasswire Firewall</a>
+</li>
+</ul>
+
+<h1 id="see-also">
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See Also</h1>
+
+<ul>
+  <li><a href="https://securityinabox.org/en/guide/mobile-phones/">Security In-a-box / Use Mobile Phones as Securely as Possible</a></li>
+  <li><a href="https://securityinabox.org/en/guide/smartphones/">Security In-a-box / Use Smartphones as Securely as Possible</a></li>
+  <li><a href="https://ssd.eff.org/en/module/problem-mobile-phones">Security Self-defense / The Problem With Smartphones</a></li>
+  <li><a href="https://securityplanner.org/#/tool/find-my-iphone">Security Planner / Find My iPhone</a></li>
+  <li>
+<a href="https://securityplanner.org/#/tool/find-my-device">Security Planner / Find My Device</a> (Android)</li>
+</ul>
+
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/personal/level-two/device-settings.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

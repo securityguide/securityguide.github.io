@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ExpressJS Pre-flight Checklist</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="ExpressJS Pre-flight Checklist" />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/webapps/">Web Application Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webapps/fundamentals/">Fundamentals</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webapps/checklists/">Checklists</a>
+</li><li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webapps/checklists/generic-checklist.html">Generic</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webapps/checklists/ruby-checklists/">Ruby</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/webapps/checklists/javascript-checklists/">Javascript</a>
+</li><li class="nav-level-3 nav-item">
+  <a class="nav-level-3 nav-link " href="/webapps/checklists/javascript-checklists/nodejs.html">NodeJS</a>
+</li>
+<li class="nav-level-3 nav-item">
+  <a class="nav-level-3 nav-link active" href="/webapps/checklists/javascript-checklists/expressjs.html">ExpressJS</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webapps/best-practices/">Best Practices</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webapps/tools/">Tools</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/webapps/tutorials/">Tutorials</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/infrastructure/">Infrastructure Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/personal/">Personal Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">ExpressJS Pre-flight Checklist</h1>
+          <h2 id="tools">tools</h2>
+
+<p>https://www.npmjs.com/package/helmet
+help secure Express/Connect apps with various HTTP headers</p>
+
+<p>Commercial Tools
+https://geekflare.com/nodejs-security-scanner/</p>
+
+<p>OWASP Dependency Check</p>
+
+<p>https://jeremylong.github.io/DependencyCheck/dependency-check-cli/index.html</p>
+
+<p>For javascript, you need <code class="highlighter-rouge">--enableExperimental</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependency-check.sh --enableExperimental --project 'xxxx' --scan /path/to/project
+</code></pre></div></div>
+
+<p>http://expressjs.com/en/advanced/best-practice-security.html</p>
+
+<h2 id="secure-cookie-options">secure cookie options</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const express = require('express')
+const session = require('express-session')
+
+const app = express()
+const hour = 3600000
+app.use(session({
+  cookie: { secure: true, sameSite: true, maxAge: hour }
+}))
+</code></pre></div></div>
+
+<h2 id="secure-header-options">secure header options</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const express = require('express')
+const helmet = require('helmet')
+
+const app = express()
+app.use(helmet())
+</code></pre></div></div>
+
+<p>https://github.com/helmetjs/helmet</p>
+
+<h2 id="csrf">csrf</h2>
+
+<p>https://www.npmjs.com/package/csurf</p>
+
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/webapps/checklists/javascript-checklists/expressjs.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

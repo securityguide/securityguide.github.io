@@ -3,14 +3,14 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ThoughtWorks Security Guide</title>
+  <title>Infrastructure Security Tools</title>
 
   <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
 
   <!-- no custom css detected -->
 
   
-  <meta name="description" content="" />
+  <meta name="description" content="Infrastructure Security Tools" />
   
 
   <link rel="stylesheet" href="/assets/main.css">
@@ -57,6 +57,14 @@
 </li>
 <li class="nav-level-0 nav-item">
   <a class="nav-level-0 nav-link " href="/infrastructure/">Infrastructure Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/infrastructure/best-practices/">Best Practices</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link active" href="/infrastructure/tools.html">Infrastructure Security Tools</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/infrastructure/threat-modeling.html">Threat Modeling</a>
 </li>
 <li class="nav-level-0 nav-item">
   <a class="nav-level-0 nav-link " href="/personal/">Personal Security</a>
@@ -70,32 +78,39 @@
 
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
-          
-          <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+          <h1 class="title">Infrastructure Security Tools</h1>
+          <p>This is an unsorted grab bag of various security tools.</p>
 
-<div class="container">
-  <h1>404</h1>
+<h2 id="sysdig">Sysdig</h2>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<p><a href="https://www.sysdig.org/">https://www.sysdig.org/</a></p>
+
+<p>Sysdig captures system calls and events from the Linux kernel. You can save, filter, and analyze the data with our CLI or our desktop app. Think of sysdig as strace + tcpdump + htop + iftop + lsof + wireshark for your entire system.</p>
+
+<h2 id="cyberchef">CyberChef</h2>
+
+<p><a href="https://gchq.github.io/CyberChef">https://gchq.github.io/CyberChef</a></p>
+
+<p>Swiss Army Knife for encoded information: does conversions, decryption, hashing, everything. Very handy! From UK’s spooks!</p>
+
+<h2 id="snoopy-logger">Snoopy Logger</h2>
+
+<p><a href="https://github.com/a2o/snoopy">https://github.com/a2o/snoopy</a></p>
+
+<p>Logs all shell commands to syslog.</p>
+
+<p>Not useful for forensics, because it can be bypassed, but useful to audit if something goes wrong in a non-attack situation.</p>
+
+<h2 id="vulnreport">VULNREPORT</h2>
+
+<p><a href="http://vulnreport.io">http://vulnreport.io</a></p>
+
+<p>Automation and management platform for penetration tests and security audits.</p>
 
           <div class="footer row">
   <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
   <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
-  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/404.html">Edit this page</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/infrastructure/tools.md">Edit this page</a></div>
 </div>
         </main>
       </div>

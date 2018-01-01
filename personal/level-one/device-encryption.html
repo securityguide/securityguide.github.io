@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Device Encryption</title>
+
+  <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
+
+  <!-- no custom css detected -->
+
+  
+  <meta name="description" content="The how and why of encrypting your device's storage." />
+  
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="alternate" type="application/rss+xml" title="ThoughtWorks Security Guide" href="/feed.xml">
+
+  <script src="/assets/simple-jekyll-search.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("results-container"),
+        searchResultTemplate: '<li class="list-group-item"><a href="{url}">{title}</a></li>',
+        noResultsText: '<li class="list-group-item">No Results<li>',
+        json: "/assets/search.json"
+      })
+    });
+  </script>
+</head>
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-md">
+    <a id="site-title" class="navbar-brand" href="/">
+      <b>Thought</b>Works <b>SECURITY GUIDE</b>
+    </a>
+    <div class="collapse navbar-collapse">
+      <div class="mr-auto"></div>
+      <div id="search-container">
+        <input type="text" class="form-control" id="search-input" placeholder="Search">
+        <ul id="results-container" class="list-group"></ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-sm-3 col-md-3 d-none d-sm-block bg-light sidebar">
+  <ul class="nav nav-pills flex-column">
+    <li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/">Home</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/webapps/">Web Application Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/infrastructure/">Infrastructure Security</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/personal/">Personal Security</a>
+</li><li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-one/">Level One</a>
+</li><li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/passwords.html">Passwords</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/email.html">Email Safety</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link active" href="/personal/level-one/device-encryption.html">Device Encryption</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/better-browsing.html">Better Browsing</a>
+</li>
+<li class="nav-level-2 nav-item">
+  <a class="nav-level-2 nav-link " href="/personal/level-one/software.html">Software Best Practices</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-two/">Level Two</a>
+</li>
+<li class="nav-level-1 nav-item">
+  <a class="nav-level-1 nav-link " href="/personal/level-three/">Level Three</a>
+</li>
+<li class="nav-level-0 nav-item">
+  <a class="nav-level-0 nav-link " href="/contributing.html">Contributing</a>
+</li>
+  </ul>
+</nav>
+
+
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
+          <h1 class="title">Device Encryption</h1>
+          <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#why-use-device-encryption">Why Use Device Encryption?</a></li>
+<li class="toc-entry toc-h1"><a href="#how-to-enable-device-encryption">How-to Enable Device Encryption</a></li>
+<li class="toc-entry toc-h1"><a href="#device-encryption-caveats">Device Encryption Caveats</a></li>
+<li class="toc-entry toc-h1"><a href="#see-also">See also</a></li>
+</ul><h1 id="why-use-device-encryption">
+<a id="why-use-device-encryption" class="anchor" href="#why-use-device-encryption" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Use Device Encryption?</h1>
+
+<p>Full disk encryption means that the contents of a disk, usually the storage inside your device–which contains the operating system, programs you have installed, and your organizational data–are scrambled so that they cannot be easily accessed when the device is off.</p>
+
+<p>Without this feature, someone who steals your device, finds your lost device, or otherwise accesses your hardware can easily read your files and possibly impersonate you to your systems. Even worse, an attacker can install malware that allows them to remotely access all your activities.</p>
+
+<h1 id="how-to-enable-device-encryption">
+<a id="how-to-enable-device-encryption" class="anchor" href="#how-to-enable-device-encryption" aria-hidden="true"><span class="octicon octicon-link"></span></a>How-to Enable Device Encryption</h1>
+
+<p>Although full disk encryption is enabled by default on some mobile devices, it must be manually set up on all laptop and desktop computers, and many phones and tablets.</p>
+
+<p>Desktop How-to:</p>
+
+<ul>
+  <li><a href="https://securityplanner.org/#/tool/windows-encryption">Security Planner / Windows Encryption</a></li>
+  <li><a href="https://securityplanner.org/#/tool/mac-encryption">Security Planner / Mac Encryption</a></li>
+</ul>
+
+<p>Mobile How-to:</p>
+
+<ul>
+  <li><a href="https://securityplanner.org/#/tool/apple-ios-encryption">Security Planner / Apple iOS Encryption</a></li>
+  <li><a href="https://securityplanner.org/#/tool/android-device-encryption">Security Planner / Android Device Encryption</a></li>
+</ul>
+
+<h1 id="device-encryption-caveats">
+<a id="device-encryption-caveats" class="anchor" href="#device-encryption-caveats" aria-hidden="true"><span class="octicon octicon-link"></span></a>Device Encryption Caveats</h1>
+
+<p><strong>Authentication Must Be Enabled</strong> Device encryption is not effective unless the device requires authentication to use. For example, you are required to log in when using your laptop or provide a PIN when using your mobile device.</p>
+
+<p><strong>Can Be Slow</strong> It is important to know that full disk encryption requires your device to do complex math, so turning on this feature will use processing power and may even make very old devices unreasonably slow to use.</p>
+
+<p><strong>Makes Disk Recovery Impossible</strong> Full disk encryption can also increase the risk of you losing access to some of your information if robust password- or PIN-management practices are not in place. A lost password or PIN as well as failure of the part of the disk where the encryption keys are stored will generally mean you (as well as anyone else) cannot recover your data. Ensure that you use syncing services and/or have regular backups of your data to minimize the risk of data loss.</p>
+
+<p><strong>Device Must Be Off or Locked</strong> Full disk encryption provides protection only when your computer is turned off, or turned on but awaiting a password to start up. Once you have logged in, the computer has the secret key needed for decrypting your data in its memory (so you can work!) and so even with the screen locked there is some risk of someone obtaining access to the contents of your computer while it is running or even sleeping. However, in general, surmounting those controls is a highly technical attack and that risk shouldn’t stop you from keeping your computer turned on or logged in when you need to work. It is, however, best to to turn off your devices whenever your device will be away from you in a hostile environment.</p>
+
+<h1 id="see-also">
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span class="octicon octicon-link"></span></a>See also</h1>
+
+<ul>
+  <li><a href="https://securityinabox.org/en/guide/secure-file-storage/">Security In-a-box / Secure File Storage</a></li>
+  <li><a href="https://securityplanner.org/#/tool/windows-encryption">Security Planner / Windows Encryption</a></li>
+  <li><a href="https://securityplanner.org/#/tool/mac-encryption">Security Planner / Mac Encryption</a></li>
+  <li><a href="https://securityplanner.org/#/tool/apple-ios-encryption">Security Planner / Apple iOS Encryption</a></li>
+  <li><a href="https://securityplanner.org/#/tool/android-device-encryption">Security Planner / Android Device Encryption</a></li>
+  <li><a href="https://ssd.eff.org/en/module/how-encrypt-your-iphone">Security Self-defense / How to: Encrypt Your iPhone</a></li>
+</ul>
+
+          <div class="footer row">
+  <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
+  <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/personal/level-one/device-encryption.md">Edit this page</a></div>
+</div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

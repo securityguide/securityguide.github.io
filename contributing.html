@@ -53,13 +53,13 @@
   <a class="nav-level-0 nav-link " href="/">Home</a>
 </li>
 <li class="nav-level-0 nav-item">
-  <a class="nav-level-0 nav-link " href="/webappsec/">Web Application Security</a>
+  <a class="nav-level-0 nav-link " href="/webapps/">Web Application Security</a>
 </li>
 <li class="nav-level-0 nav-item">
-  <a class="nav-level-0 nav-link " href="/netsec/">Network Security</a>
+  <a class="nav-level-0 nav-link " href="/infrastructure/">Infrastructure Security</a>
 </li>
 <li class="nav-level-0 nav-item">
-  <a class="nav-level-0 nav-link " href="/opsec/">Operations Security</a>
+  <a class="nav-level-0 nav-link " href="/personal/">Personal Security</a>
 </li>
 <li class="nav-level-0 nav-item">
   <a class="nav-level-0 nav-link active" href="/contributing.html">Contributing</a>
@@ -79,12 +79,11 @@
 <a id="simple-method-editing-on-github" class="anchor" href="#simple-method-editing-on-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple method: editing on Github</h3>
 
 <p>Learning to use git can be very difficult. As an alternative, it is possible
-to contribute to <code class="highlighter-rouge">security.git</code> by directly editing pages through the Github
+to contribute to <code class="highlighter-rouge">securityguide.git</code> by directly editing pages through the Github
 website. This method does not let you preview how the page will render, but it
 does allow you to contribute edits without needing to install any software.</p>
 
-<p>First, you need to register a github.com account. Then visit
-<a href="https://github.com/securityguide/securityguide">github.com/thoughtworks/security</a>.</p>
+<p>First, you need to register a github.com account. Then visit <a href="https://github.com/securityguide/securityguide">https://github.com/securityguide/securityguide</a>.</p>
 
 <p>To edit files:</p>
 
@@ -95,7 +94,7 @@ name and then clicking the “Edit” button in the file’s toolbar (it looks l
 pencil). To save, type a commit message and hit the “Propose file change” button.</li>
   <li>
 <strong>New Files:</strong> You can add a new page by clicking the “+” button at the
-end of the path breadcrumbs (e.g. “security / pages / netsec / [+]”
+end of the path breadcrumbs (e.g. “securityguide / pages / webapps / [+]”
 near the top of the page). When you are done editing the content, hit the
 “Propose new file” button.</li>
 </ul>
@@ -116,11 +115,11 @@ a copy of the code under your GitHub user account. For more details on
 how to fork a repository see <a href="https://help.github.com/articles/fork-a-repo/">this guide</a>.</p>
   </li>
   <li>
-    <p>Clone your fork of the <code class="highlighter-rouge">security</code> repo from your GitHub account to your local disk:</p>
+    <p>Clone your fork of the <code class="highlighter-rouge">securityguide</code> repo from your GitHub account to your local disk:</p>
 
     <div class="language-bash highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:YOUR_GITHUB_LOGIN/security.git
-<span class="nv">$ </span><span class="nb">cd </span>security
+<div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone git@github.com:YOUR_GITHUB_LOGIN/securityguide.git
+<span class="nv">$ </span><span class="nb">cd </span>securityguide
 </code></pre></div>    </div>
   </li>
   <li>
@@ -149,7 +148,7 @@ how to fork a repository see <a href="https://help.github.com/articles/fork-a-re
   </li>
 </ol>
 
-<p>Go to https://github.com/YOUR_GITHUB_LOGIN/security and push the button to <a href="https://help.github.com/articles/using-pull-requests">issue a pull request</a>. Someone will review your changes and merge them or comment on them.</p>
+<p>Go to https://github.com/YOUR_GITHUB_LOGIN/guidesecurity and push the button to <a href="https://help.github.com/articles/using-pull-requests">issue a pull request</a>. Someone will review your changes and merge them or comment on them.</p>
 
 <p><strong>Installing Jekyll</strong></p>
 
@@ -169,7 +168,7 @@ $ gem install bundler
 
 <p>Install <code class="highlighter-rouge">jekyll</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd security
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd securityguide
 $ bundle
 </code></pre></div></div>
 
@@ -177,7 +176,7 @@ $ bundle
 
 <p>When you are making changes, you can prevew the changes by running the jekyll server:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd security
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd securityguide
 $ make serve
 </code></pre></div></div>
 
@@ -185,7 +184,7 @@ $ make serve
 
 <p>After you have made changes, run this command to completely render the static HTML for the entire site:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd security
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd securityguide
 $ make build
 </code></pre></div></div>
 
@@ -193,16 +192,16 @@ $ make build
 
 <ol>
   <li>Go to https://github.com/securityguide/securityguide and click the fork button.</li>
-  <li>Clone your fork locally: <code class="highlighter-rouge">git clone ssh://git@github.com/YOUR_GITHUB_LOGIN/security</code>
+  <li>Clone your fork locally: <code class="highlighter-rouge">git clone ssh://git@github.com/YOUR_GITHUB_LOGIN/securityguide</code>
 </li>
-  <li>Start the amber server: <code class="highlighter-rouge">cd security; make serve</code>
+  <li>Start the amber server: <code class="highlighter-rouge">cd securityguide; make serve</code>
 </li>
-  <li>Edit files in <code class="highlighter-rouge">security/pages</code>
+  <li>Edit files in <code class="highlighter-rouge">securityguide/pages</code>
 </li>
   <li>Preview changes in your browser using http://localhost:4000</li>
   <li>When satisfied, <code class="highlighter-rouge">git commit</code>, <code class="highlighter-rouge">git push</code>
 </li>
-  <li>Go to https://github.com/YOUR_GITHUB_LOGIN/security and push the button to <a href="https://help.github.com/articles/using-pull-requests">issue a pull request</a>.</li>
+  <li>Go to https://github.com/YOUR_GITHUB_LOGIN/securityguide and push the button to <a href="https://help.github.com/articles/using-pull-requests">issue a pull request</a>.</li>
 </ol>
 
 <p><strong>Keeping up to date</strong></p>
