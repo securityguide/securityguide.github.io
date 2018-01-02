@@ -14,6 +14,11 @@
   "tags": "",
   "content": "SQL Injection  “SQL Injection” is a security vulnerability with a very simple cause: it occurs whenever user input is not properly filtered when SQL queries are built.  It is one of the most common vulnerabilities, can lead to total compromise of the database, and is also easy to prevent.  To prevent SQL Injection:     Always use parameter binding. Almost all libraries for accessing a database include some API for “parameter binding”. You should always use these built-in methods.   Avoid every trying to filter input yourself. Use the parameter binding feature that is already built into the database library you are using.   If you are creating a custom query that must bypass parameter binding, try to exercise extreme caution. For example, only allow a very limited set of characters in the user input.   Examples  A vulnerable query (java):  String query = \"SELECT account_balance FROM user_data WHERE user_name = \" + request.getParameter(\"customerName\"); Statement statement = connection.createStatement(...); ResultSet results = statement.executeQuery(query);   In this vulnerable query, if the parameter customerName contained ''; DROP TABLE user_data; then an attacker could destroy the database (there are other techniques that can be used to exfiltrate data as well).  A safe query using parameter binding (java):  String custname = request.getParameter(\"customerName\"); String query = \"SELECT account_balance FROM user_data WHERE user_name = ? \"; PreparedStatement pstmt = connection.prepareStatement(query); pstmt.setString(1, custname); ResultSet results = pstmt.executeQuery();   Where it gets tricky  Many database APIs will not use parameter binding for all calls, even when it looks like they do. For example, in Ruby using ActiveRecord, this call is unsafe:  User.exist?(params[:id])   If params[:id] is encoded as an array by the attacker, then it will allow an attacker to bypass any input filtering.  A static analysis tool in your test pipeline should help detect these sort of non-obvious errors for you.  Further reading     netspi SQL wiki, An excellent in-depth look at SQL injection.   OWASP page on SQL injection   OWASP SQL Injection Prevention Cheat Sheet"
 },{
+  "title": "Abusing URLs",
+  "url": "/webapps/fundamentals/abusing-urls.html",
+  "tags": "",
+  "content": "Referrers  When a user clicks on a link on a web page, the browser sends the original URL to the new page that it opens. This original URL is called the HTTP referrer (originally misspelled ‘referer’). The browser will also send the referrer for other requests triggered by the page, such as images and stylesheets.  This is a big problem if there is anything sensitive in the URL, such as a session ID or access key. For this reason, it is important to try to not ever put anything sensitive in the URL.  There are several attacks that can take advantage of referrers to exfiltrate any sensitive information in the URL. For example, “Relative Path Overwrite”.  To try to prevent the browser from sending referers:     Add the attribute rel=”noreferrer” to links. This only protects links, and is not universally supported by browsers.   Replace links with Data URIs that reload to the new URL, hiding the referer. This only protects links. For example:     &lt;a href=\"data:text/html,&lt;meta http-equiv='refresh' content='0; url=https://example.org'&gt;\"&gt;example.org&lt;/a&gt;           Add a Content Security Policy (v1.1 or later) with a restrictive referer directive. This does not work in all browsers.   These are all good ideas for increasing the user’s privacy, but should not be relied on to mitigate the problems associated with sensitive information in the URL.  Same Origin     javascript can only phone home   Abusing same origin policy            how it works       how it falls down                    CSRF                            different origin writes allowed               tags for: forms, images, assets are allowed                                   dns rebinding                       best pratices           CORS can allow scripts to violate the same origin policy   what javascript can read            every javascript that is loaded can read (most) everything on the page and send the information back to its origin.       javascript cannot read ‘tainted’ assets that have been loaded dynamically from different domains."
+},{
   "title": "Access Controls",
   "url": "/webapps/best-practices/access-controls.html",
   "tags": "",
@@ -57,7 +62,7 @@
   "title": "Contributing",
   "url": "/contributing.html",
   "tags": "",
-  "content": "Simple method: editing on Github  Learning to use git can be very difficult. As an alternative, it is possible to contribute to securityguide.git by directly editing pages through the Github website. This method does not let you preview how the page will render, but it does allow you to contribute edits without needing to install any software.  First, you need to register a github.com account. Then visit https://github.com/securityguide/securityguide.  To edit files:     Existing Files: You can edit an existing file by clicking on the file name and then clicking the “Edit” button in the file’s toolbar (it looks like pencil). To save, type a commit message and hit the “Propose file change” button.   New Files: You can add a new page by clicking the “+” button at the end of the path breadcrumbs (e.g. “securityguide / pages / webapps / [+]” near the top of the page). When you are done editing the content, hit the “Propose new file” button.   Boom, you are done. Someone will review the change request and either merge it right away or add comments.  Advanced method: using git and Jekyll  Clone the repository          Fork the project repository by clicking on the ‘Fork’ button near the top right of the page. This creates a copy of the code under your GitHub user account. For more details on how to fork a repository see this guide.           Clone your fork of the securityguide repo from your GitHub account to your local disk:      $ git clone git@github.com:YOUR_GITHUB_LOGIN/securityguide.git $ cd securityguide                Create a feature branch to hold your development changes:      $ git checkout -b my-feature                Modify the pages in your feature branch. Add changed files using git add and then git commit files:      $ git add modified_files $ git commit           Then push the changes to your GitHub account with:      $ git push -u origin my-feature                Issue a pull request      Go to https://github.com/YOUR_GITHUB_LOGIN/guidesecurity and push the button to issue a pull request. Someone will review your changes and merge them or comment on them.  Installing Jekyll  In order to preview your edits before you commit them, you will need a program called jekyll.  Install bundler for Mac:  $ brew install ruby $ gem install bundler   Install bundler on Debian/Ubuntu:  # apt install ruby ruby-dev build-essential # gem install bundler   Install jekyll:  $ cd securityguide $ bundle   Previewing pages  When you are making changes, you can prevew the changes by running the jekyll server:  $ cd securityguide $ make serve   Then browse to http://localhost:4000. Any page you view this way gets re-rendered when it is loaded.  After you have made changes, run this command to completely render the static HTML for the entire site:  $ cd securityguide $ make build   Putting it all together     Go to https://github.com/securityguide/securityguide and click the fork button.   Clone your fork locally: git clone ssh://git@github.com/YOUR_GITHUB_LOGIN/securityguide   Start the amber server: cd securityguide; make serve   Edit files in securityguide/pages   Preview changes in your browser using http://localhost:4000   When satisfied, git commit, git push   Go to https://github.com/YOUR_GITHUB_LOGIN/securityguide and push the button to issue a pull request.   Keeping up to date  After a while, your fork of the repo will become out of date. In order to refresh it with the lastest upstream content:  $ git remote add upstream https://github.com/securityguide/securityguide $ git checkout master $ git fetch upstream $ git rebase upstream/master   Editing tips  Syntax  These pages use Markdown syntax (Kramdown flavored).  Wiki links  In addition to traditional Markdown syntax for links, you can use wiki-style links, like so:  \\[[page_name]] \\[[page_name|Title]] \\[[Title =&gt; page_name]]   Using wiki-style links is highly preferred, because these links will not break when a page moves and missing links will produce an error notice.  Includes  You can mix in Liquid tags in your Markdown pages. For example, this text:     {% include blah.md %}   Will insert the contents of pages/_includes/blah.md into the current page.  To include a formatted code block:     ```bash  {% include script.sh %}  ```   Additionally, you can include any page in another page via the include_page plug in:     {% include_page secret_management %}   This will insert the contents of secret_management.md into the current page, regardless of where the file secret_management.md lives in the directory structure.  Navigation menu  To update the left side navigation menu, edit the file pages/_data/menu.yml."
+  "content": "Simple method: editing on Github  Learning to use git can be very difficult. As an alternative, it is possible to contribute to securityguide.git by directly editing pages through the Github website. This method does not let you preview how the page will render, but it does allow you to contribute edits without needing to install any software.  First, you need to register a github.com account. Then visit https://github.com/securityguide/securityguide.  To edit files:     Existing Files: You can edit an existing file by clicking on the file name and then clicking the “Edit” button in the file’s toolbar (it looks like pencil). To save, type a commit message and hit the “Propose file change” button.   New Files: You can add a new page by clicking the “+” button at the end of the path breadcrumbs (e.g. “securityguide / pages / webapps / [+]” near the top of the page). When you are done editing the content, hit the “Propose new file” button.   Boom, you are done. Someone will review the change request and either merge it right away or add comments.  Advanced method: using git and Jekyll  Clone the repository          Fork the project repository by clicking on the ‘Fork’ button near the top right of the page. This creates a copy of the code under your GitHub user account. For more details on how to fork a repository see this guide.           Clone your fork of the securityguide repo from your GitHub account to your local disk:      $ git clone git@github.com:YOUR_GITHUB_LOGIN/securityguide.git $ cd securityguide                Create a feature branch to hold your development changes:      $ git checkout -b my-feature                Modify the pages in your feature branch. Add changed files using git add and then git commit files:      $ git add modified_files $ git commit           Then push the changes to your GitHub account with:      $ git push -u origin my-feature                Issue a pull request      Go to https://github.com/YOUR_GITHUB_LOGIN/guidesecurity and push the button to issue a pull request. Someone will review your changes and merge them or comment on them.  Installing Jekyll  In order to preview your edits before you commit them, you will need a program called jekyll.  Install bundler for Mac:  $ brew install ruby $ gem install bundler   Install bundler on Debian/Ubuntu:  # apt install ruby ruby-dev build-essential # gem install bundler   Install jekyll:  $ cd securityguide $ bundle   Previewing pages  When you are making changes, you can prevew the changes by running the jekyll server:  $ cd securityguide $ make serve   Then browse to http://localhost:4000. Any page you view this way gets re-rendered when it is loaded.  After you have made changes, run this command to completely render the static HTML for the entire site:  $ cd securityguide $ make build   Putting it all together     Go to https://github.com/securityguide/securityguide and click the fork button.   Clone your fork locally: git clone ssh://git@github.com/YOUR_GITHUB_LOGIN/securityguide   Start the amber server: cd securityguide; make serve   Edit files in securityguide/pages   Preview changes in your browser using http://localhost:4000   When satisfied, git commit, git push   Go to https://github.com/YOUR_GITHUB_LOGIN/securityguide and push the button to issue a pull request.   Keeping up to date  After a while, your fork of the repo will become out of date. In order to refresh it with the lastest upstream content:  $ git remote add upstream https://github.com/securityguide/securityguide $ git checkout master $ git fetch upstream $ git rebase upstream/master   Editing tips  Syntax  These pages use Markdown syntax (Kramdown flavored).  Wiki links  In addition to traditional Markdown syntax for links, you can use wiki-style links, like so:  \\[[page_name]] \\[[page_name|Title]] \\[[Title =&gt; page_name]]   Using wiki-style links is highly preferred, because these links will not break when a page moves and missing links will produce an error notice. If two pages have the same name, you can distinguish between them by specifying the full path for the page name (e.g. [[best practices =&gt; webapps/best-practices]]).  Includes  You can mix in Liquid tags in your Markdown pages. For example, this text:     {% include blah.md %}   Will insert the contents of pages/_includes/blah.md into the current page.  To include a formatted code block:     ```bash  {% include script.sh %}  ```   Additionally, you can include any page in another page via the include_page plug in:     {% include_page secret_management %}   This will insert the contents of secret_management.md into the current page, regardless of where the file secret_management.md lives in the directory structure.  Navigation menu  To update the left side navigation menu, edit the file pages/_data/menu.yml."
 },{
   "title": "Content Security Policy",
   "url": "/webapps/best-practices/csp.html",
@@ -114,35 +119,15 @@
   "tags": "",
   "content": "Protect Data in Transit     Use HTTPS for everything!   Use HSTS to enforce it   You will need a certificate from a trusted certificate authority if you plan to trust normal web browsers   Protect your private key   Use a configuration tool to help adopt a secure HTTPS configuration   Set the “secure” flag in cookies   Be mindful not to leak sensitive data in URLs   Verify your server configuration after enabling HTTPS and every few months thereafter   Enforce HTTPS  Please just do it. Enforcing HTTPS is the best policy, for many many reasons.  Unfortunately, enforcing HTTPS on the server does not not necessarily mean that the browser will not attempt plaintext HTTP connections. If the browser has a session cookie, then these plaintext connection attempts will leak the session to any network observer.  To prevent session hijacking and SSL striping attacks, you need to additional enable the following:     Ensure that the [[Secure cookie flag is set =&gt; abusing-cookies]].   Ensure that HTTP Strict Transport Security (HSTS) is set.   Understanding X.509  To be written  Recommended configuration  Web server configurations that enforce HTTPS and also use a good cipher list.  Apache  &lt;VirtualHost *:80&gt;   ServerName DOMAIN   ServerAlias WWW_DOMAIN   RewriteEngine On   RewriteRule ^.*$ https://DOMAIN%{REQUEST_URI} [R=permanent,L] &lt;/VirtualHost&gt;  &lt;VirtualHost *:443&gt;   ServerName DOMAIN   ServerAlias WWW_DOMAIN    SSLEngine on   SSLProtocol all -SSLv2 -SSLv3   SSLHonorCipherOrder on   SSLCompression off   SSLCipherSuite \"ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!RC4:!MD5:!PSK!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA\"    RequestHeader set X_FORWARDED_PROTO 'https'    SSLCACertificatePath /etc/ssl/certs   SSLCertificateKeyFile /path/to/private.key   SSLCertificateFile /path/to/cert.crt    &lt;IfModule mod_headers.c&gt;     Header always set Strict-Transport-Security \"max-age=31536000; includeSubDomains\"     Header always unset X-Powered-By     Header always unset X-Runtime   &lt;/IfModule&gt; &lt;/VirtualHost&gt;   Nginx  To be written  Client certification authentication  To be written"
 },{
-  "title": "Ruby Tools",
-  "url": "/webapps/tools/ruby-tools/",
-  "tags": "",
-  "content": "Dependency check for Ruby     Static analysis for Ruby     Secrets management for Ruby"
-},{
-  "title": "Personal Security: Level Three",
-  "url": "/personal/level-three/",
-  "tags": "",
-  "content": "Physical Device Security     Second Factor Authentication     Erasing Data     Tor     OpenPGP"
-},{
-  "title": "Infrastructure Security",
-  "url": "/infrastructure/",
-  "tags": "",
-  "content": "Best Practices    Systems Inventory     System Administrators     Orphaned Systems     Security Advisories     Patch Management     Vulnerability Scanning     Remote Logging     Infrastructure Security Tools     Threat Modeling"
-},{
-  "title": "Sysadmin Best Practices",
-  "url": "/infrastructure/best-practices/",
-  "tags": "",
-  "content": "Systems Inventory     System Administrators     Orphaned Systems     Security Advisories     Patch Management     Vulnerability Scanning     Remote Logging"
-},{
   "title": "Personal Security: Level One",
   "url": "/personal/level-one/",
   "tags": "",
   "content": "Passwords: Better living through better passwords.     Email Safety: Simple tips for using email safely.     Device Encryption: The how and why of encrypting your device's storage.     Better Browsing: Adjust your web browser for greater security.     Software Best Practices: Best practices for installing and updating software."
 },{
-  "title": "Web Application Security",
-  "url": "/webapps/",
+  "title": "Personal Security: Level Three",
+  "url": "/personal/level-three/",
   "tags": "",
-  "content": "Contents     Fundamentals: The core concepts behind the gritty details of how web applications work and common ways that web applications are compromised.    Abusing Cookies     Abusing Filesystems     Abusing Input     Other Tricks     Checklists: Essential things to check before deploying your web application into production.    Generic     Ruby     Javascript     Best Practices: A guide to the best practices when writing web applications.    Validate User Input     Dependency Checker     Static analysis     Secrets Management     Access Controls     Content Security Policy     Environment Isolation     Enforce HTTPS     Logging     Tools: Tools to help you write more secure web applications.    Agnostic     Java     Javascript     Python     Ruby     Tutorials    SAML with Ruby   Tasks     Read the fundamentals   Work through the checklist for your platform   Read the best practices   Use the tool section as a resource"
+  "content": "Physical Device Security     Second Factor Authentication     Erasing Data     Tor     OpenPGP"
 },{
   "title": "Personal Security: Level Two",
   "url": "/personal/level-two/",
@@ -157,57 +142,77 @@
   "title": "Web application security fundamentals",
   "url": "/webapps/fundamentals/",
   "tags": "",
-  "content": "These pages cover the core concepts behind the gritty details of how web applications work and common ways that web applications are compromised. For information on how to actually protect against attacks, see Web Application Checklists and Web Application Best Practices.  Security for web applications can feel like an endless pit of distraction: you can always learn more and there are always new attacks. However, learning the core basics of how cookies and javascript work will help you naturally write more secure code and also make you a better web developer.     Abusing Cookies: The surprisingly true tale of how cookies really work and all the ways in which they can be abused by attackers.     Abusing Filesystems     Abusing Input: Don't. Trust. The. User. Ever. That is pretty much it.     Other Tricks"
+  "content": "These pages cover the core concepts behind the gritty details of how web applications work and common ways that web applications are compromised. For information on how to actually protect against attacks, see [[ Web Application Checklists =&gt; webapps/checklists ]] and [[Web Application Best Practices =&gt; webapps/best-practices]].  Security for web applications can feel like an endless pit of distraction: you can always learn more and there are always new attacks. However, learning the core basics of how cookies and javascript work will help you naturally write more secure code and also make you a better web developer.     Abusing Cookies: The surprisingly true tale of how cookies really work and all the ways in which they can be abused by attackers.     Abusing Filesystems     Abusing Input: Don't. Trust. The. User. Ever. That is pretty much it.     Abusing URLs"
 },{
   "title": "Python Tools",
   "url": "/webapps/tools/python-tools/",
   "tags": "",
   "content": "Dependency check for Python     Static analysis for Python     Secrets management for Python"
 },{
-  "title": "Web Application Best Practices",
-  "url": "/webapps/best-practices/",
-  "tags": "",
-  "content": "Validate User Input     Dependency Checker     Static analysis     Secrets Management     Access Controls     Content Security Policy     Environment Isolation     Enforce HTTPS     Logging"
-},{
   "title": "Java Tools",
   "url": "/webapps/tools/java-tools/",
   "tags": "",
   "content": "Dependency check for Java     Static analysis for Java     Secrets management for Java"
-},{
-  "title": "Tutorials",
-  "url": "/webapps/tutorials/",
-  "tags": "",
-  "content": "SAML with Ruby: How to add Okta SAML authentication to Ruby applications"
-},{
-  "title": "Web Application Checklists",
-  "url": "/webapps/checklists/",
-  "tags": "",
-  "content": "Generic     Ruby    Rails 4     Rails 5     Javascript    NodeJS     ExpressJS   TODO: add acceptance criteria for major items, such as dependency check, static analysis, and secrets storage."
 },{
   "title": "Javascript Tools",
   "url": "/webapps/tools/javascript-tools/",
   "tags": "",
   "content": "Dependency check for Javascript     Static analysis for Javascript     Secrets management for Javascript"
 },{
-  "title": "Javascript Checklists",
-  "url": "/webapps/checklists/javascript-checklists/",
+  "title": "Ruby Tools",
+  "url": "/webapps/tools/ruby-tools/",
   "tags": "",
-  "content": "Platforms     [[expressjs]]   [[nodejs]]   Secure Coding Practices  Avoid stringify()  The command JSON.stringify() is not safe and can lead to XSS attacks.  Instead, use serialize-javascript:  $npm install --save-dev serialize-javascript      View on GitHub   Security risk details   Resources &amp; Advisories  https://medium.com/node-security"
+  "content": "Dependency check for Ruby     Static analysis for Ruby     Secrets management for Ruby"
 },{
-  "title": "Ruby Checklists",
-  "url": "/webapps/checklists/ruby-checklists/",
+  "title": "Agnostic Tools",
+  "url": "/webapps/tools/agnostic-tools/",
   "tags": "",
-  "content": "[[rails-4]]   [[rails-5]]"
+  "content": "Agnostic dependency check     Agnostic static analysis     Agnostic dynamic analysis     Agnostic secrets management"
 },{
   "title": "Web Application Tools",
   "url": "/webapps/tools/",
   "tags": "",
   "content": "Tools by languages     Agnostic: Web application security tools that work with all languages    Agnostic dependency check     Agnostic static analysis     Agnostic dynamic analysis     Agnostic secrets management     Java: Web application security tools for Java    Dependency check for Java     Static analysis for Java     Secrets management for Java     Javascript: Web application security tools for Javascript    Dependency check for Javascript     Static analysis for Javascript     Secrets management for Javascript     Python: Web application security tools for Python    Dependency check for Python     Static analysis for Python     Secrets management for Python     Ruby: Web application security tools for Ruby    Dependency check for Ruby     Static analysis for Ruby     Secrets management for Ruby   Dependency check  What is it?  A dependency checker is a tool that attempts to detect when updates are available for third party dependencies (libraries, frameworks, etc) used in your application due to publicly disclosed security vulnerabilities.  Why is it needed?     Up to 90% of many applications are comprised of third party components.   Applications often inadvertently introduce vulnerabilities by failing to update components in a timely manner or by pulling in outdated components with vulnerabilities.   When should I use this?  All the time.  Using components with known vulnerabilities is a widespread and serious problem in application development. It can lead to easy, scannable vulnerabilities in your app. Recommended tools for a variety of languages are provided elsewhere in this project:  Tools     [[agnostic-dependency-checker]]   [[java-dependency-checker]]   [[javascript-dependency-checker]]   [[python-dependency-checker]]   [[ruby-dependency-checker]]   Further reading     https://www.owasp.org/index.php/OWASP_Dependency_Check   Static analysis  What is it?  A static analysis tool, referred to as a Static Application Security Tool (SAST) in the context of security, identifies potential security flaws in source code, byte code, and binaries. SAST tools provide a powerful way to identify potential defects by analyzing applications from the “inside out”. This provides much greater sight into possible flaws than a scanner that only interacts with a application as a user would.  Why is it needed?     Sometimes the easiest or most obvious way to do something is also not secure. These tools provide fast feedback if a mistake is made.   Continuous, fast feedback about potential vulnerabilities saves teams time and stress.   When should I use this?     In your CI pipeline. Automatically run the scanner periodically, possibly alongside other automated tests following a checkin if it can complete quickly enough.   During manual testing. More in-depth scans can be run and verified along with the other necessary manual tests. Testers can also start to do some exploratory security testing after familiarizing themselves with typical weaknesses.   Tools     [[agnostic-static-analysis]]   [[java-static-analysis]]   [[javascript-static-analysis]]   [[python-static-analysis]]   [[ruby-static-analysis]]   Further reading     Wikipedia page on static program analysis   Wikipedia list of static program analyzers   OWASP wiki page on static program analysis   NIST list of security-focused static program analyzers   Dynamic analysis  To be written  Secret management  What is it?  Secrets such as passwords, credentials, access tokens, certificates, and other confidential information are something we can’t allow to fall into the wrong hands. A secret management tool makes it possible to manage these kinds of secrets safely.  Why is it needed?  We see this more than you’d think. The dangers of leaving secrets into your code are wide ranging and severe. It could lead to everything from an attacker compromising a user’s session to full owning your application, and even the application server, gaining access to your database, and impersonating you to uncover more valuable data (and this is not an exhaustive list).     Applications rely on secrets to access services such as databases, encrypted files, and to securely communicate with other applications and systems.   Team members may also need a way to manage and share similar confidential information.   Writing secrets in a place they can be easily retrieved exposes projects to unnecessary risks. This includes doing things like writing them on sticky notes or in source code or configuration files.   Tools     [[agnostic-secrets-management]]"
 },{
-  "title": "Agnostic Tools",
-  "url": "/webapps/tools/agnostic-tools/",
+  "title": "Ruby Checklists",
+  "url": "/webapps/checklists/ruby-checklists/",
   "tags": "",
-  "content": "Agnostic dependency check     Agnostic static analysis     Agnostic dynamic analysis     Agnostic secrets management"
+  "content": "[[rails-4]]   [[rails-5]]"
+},{
+  "title": "Javascript Checklists",
+  "url": "/webapps/checklists/javascript-checklists/",
+  "tags": "",
+  "content": "Platforms     [[expressjs]]   [[nodejs]]   Secure Coding Practices  Avoid stringify()  The command JSON.stringify() is not safe and can lead to XSS attacks.  Instead, use serialize-javascript:  $npm install --save-dev serialize-javascript      View on GitHub   Security risk details   Resources &amp; Advisories  https://medium.com/node-security"
+},{
+  "title": "Web Application Checklists",
+  "url": "/webapps/checklists/",
+  "tags": "",
+  "content": "Generic     Ruby    Rails 4     Rails 5     Javascript    NodeJS     ExpressJS   TODO: add acceptance criteria for major items, such as dependency check, static analysis, and secrets storage."
+},{
+  "title": "Tutorials",
+  "url": "/webapps/tutorials/",
+  "tags": "",
+  "content": "SAML with Ruby: How to add Okta SAML authentication to Ruby applications"
+},{
+  "title": "Web Application Best Practices",
+  "url": "/webapps/best-practices/",
+  "tags": "",
+  "content": "Validate User Input     Dependency Checker     Static analysis     Secrets Management     Access Controls     Content Security Policy     Environment Isolation     Enforce HTTPS     Logging"
+},{
+  "title": "Web Application Security",
+  "url": "/webapps/",
+  "tags": "",
+  "content": "Contents     Fundamentals: The core concepts behind the gritty details of how web applications work and common ways that web applications are compromised.    Abusing Cookies     Abusing Filesystems     Abusing Input     Abusing URLs     Checklists: Essential things to check before deploying your web application into production.    Generic     Ruby     Javascript     Best Practices: A guide to the best practices when writing web applications.    Validate User Input     Dependency Checker     Static analysis     Secrets Management     Access Controls     Content Security Policy     Environment Isolation     Enforce HTTPS     Logging     Tools: Tools to help you write more secure web applications.    Agnostic     Java     Javascript     Python     Ruby     Tutorials    SAML with Ruby   Tasks     Read the fundamentals   Work through the checklist for your platform   Read the best practices   Use the tool section as a resource"
+},{
+  "title": "Sysadmin Best Practices",
+  "url": "/infrastructure/best-practices/",
+  "tags": "",
+  "content": "Systems Inventory     System Administrators     Orphaned Systems     Security Advisories     Patch Management     Vulnerability Scanning     Remote Logging"
+},{
+  "title": "Infrastructure Security",
+  "url": "/infrastructure/",
+  "tags": "",
+  "content": "Best Practices    Systems Inventory     System Administrators     Orphaned Systems     Security Advisories     Patch Management     Vulnerability Scanning     Remote Logging     Infrastructure Security Tools     Threat Modeling"
 },{
   "title": "Validate User Input",
   "url": "/webapps/best-practices/input.html",
@@ -263,11 +268,6 @@
   "url": "/infrastructure/best-practices/orphaned-systems.html",
   "tags": "",
   "content": "Try to identify systems that are no longer being cared for and no longer needed. Create a plan for retiring these systems."
-},{
-  "title": "Other Tricks",
-  "url": "/webapps/fundamentals/other-tricks.html",
-  "tags": "",
-  "content": "Referrers  There are several things you can do to try to prevent the browser from sending referers          Add the attribute rel=”noreferrer” to links. This only protects links, and is not universally supported by browsers.           Replace links with Data URIs that reload to the new URL, hiding the referer. This only protects links. For example:      &lt;a href=\"data:text/html,&lt;meta http-equiv='refresh' content='0; url=https://example.org'&gt;\"&gt;example.org&lt;/a&gt;      Add a Content Security Policy (v1.1 or later) with a restrictive referer directive. This does not work in all browsers.   These are all good ideas for increasing the user’s privacy, but should not be relied on to mitigate the problems associated with sensitive information in the URL.  Same Origin     Abusing same origin policy            how it works       how it falls down                    CSRF                            different origin writes allowed               tags for: forms, images, assets are allowed                                   dns rebinding                       best pratices           javascript can only phone home   CORS can allow scripts to violate the same origin policy   every javascript that is loaded can read (most) everything on the page and send the information back to its origin.   javascript cannot read ‘tainted’ assets that have been loaded dynamically from different domains."
 },{
   "title": "Passwords",
   "url": "/personal/level-one/passwords.html",

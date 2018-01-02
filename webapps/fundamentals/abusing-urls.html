@@ -3,14 +3,14 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Other Tricks</title>
+  <title>Abusing URLs</title>
 
   <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
 
   <!-- no custom css detected -->
 
   
-  <meta name="description" content="Other Tricks" />
+  <meta name="description" content="Abusing URLs" />
   
 
   <link rel="stylesheet" href="/assets/main.css">
@@ -66,7 +66,7 @@
   <a class="nav-level-2 nav-link " href="/webapps/fundamentals/abusing-input.html">Abusing Input</a>
 </li>
 <li class="nav-level-2 nav-item">
-  <a class="nav-level-2 nav-link active" href="/webapps/fundamentals/other-tricks.html">Other Tricks</a>
+  <a class="nav-level-2 nav-link active" href="/webapps/fundamentals/abusing-urls.html">Abusing URLs</a>
 </li>
 <li class="nav-level-1 nav-item">
   <a class="nav-level-1 nav-link " href="/webapps/checklists/">Checklists</a>
@@ -95,24 +95,23 @@
 
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-9 pt-3">
-          <h1 class="title">Other Tricks</h1>
+          <h1 class="title">Abusing URLs</h1>
           <h2 id="referrers">Referrers</h2>
 
-<p>There are several things you can do to try to prevent the browser from sending referers</p>
+<p>When a user clicks on a link on a web page, the browser sends the original URL to the new page that it opens. This original URL is called the HTTP referrer (originally misspelled ‘referer’). The browser will also send the referrer for other requests triggered by the page, such as images and stylesheets.</p>
+
+<p>This is a big problem if there is anything sensitive in the URL, such as a session ID or access key. For this reason, it is important to try to not ever put anything sensitive in the URL.</p>
+
+<p>There are several attacks that can take advantage of referrers to exfiltrate any sensitive information in the URL. For example, “Relative Path Overwrite”.</p>
+
+<p>To try to prevent the browser from sending referers:</p>
 
 <ul>
-  <li>
-    <p>Add the attribute rel=”noreferrer” to links. This only protects links, and is not universally supported by browsers.</p>
+  <li>Add the attribute rel=”noreferrer” to links. This only protects links, and is not universally supported by browsers.</li>
+  <li>Replace links with Data URIs that reload to the new URL, hiding the referer. This only protects links. For example:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="data:text/html,&lt;meta http-equiv='refresh' content='0; url=https://example.org'&gt;"&gt;example.org&lt;/a&gt;
+</code></pre></div>    </div>
   </li>
-  <li>
-    <p>Replace links with Data URIs that reload to the new URL, hiding the referer. This only protects links. For example:</p>
-  </li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a href="data:text/html,&lt;meta http-equiv='refresh' content='0; url=https://example.org'&gt;"&gt;example.org&lt;/a&gt;
-</code></pre></div></div>
-
-<ul>
   <li>Add a Content Security Policy (v1.1 or later) with a restrictive referer directive. This does not work in all browsers.</li>
 </ul>
 
@@ -121,6 +120,7 @@
 <h2 id="same-origin">Same Origin</h2>
 
 <ul>
+  <li>javascript can only phone home</li>
   <li>Abusing same origin policy
     <ul>
       <li>how it works</li>
@@ -138,16 +138,19 @@
       <li>best pratices</li>
     </ul>
   </li>
-  <li>javascript can only phone home</li>
   <li>CORS can allow scripts to violate the same origin policy</li>
-  <li>every javascript that is loaded can read (most) everything on the page and send the information back to its origin.</li>
-  <li>javascript cannot read ‘tainted’ assets that have been loaded dynamically from different domains.</li>
+  <li>what javascript can read
+    <ul>
+      <li>every javascript that is loaded can read (most) everything on the page and send the information back to its origin.</li>
+      <li>javascript cannot read ‘tainted’ assets that have been loaded dynamically from different domains.</li>
+    </ul>
+  </li>
 </ul>
 
           <div class="footer row">
   <div class="col-sm-4"><span class="copyleft">&#169;</span> <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution Share-alike</a></div>
   <div class="col-sm-4">&#169; 2018 <a href="https://thoughtworks.com">ThoughtWorks</a></div>
-  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/webapps/fundamentals/other-tricks.md">Edit this page</a></div>
+  <div class="col-sm-4">&#9998; <a href="https://github.com/securityguide/securityguide/blob/master/pages/webapps/fundamentals/abusing-urls.md">Edit this page</a></div>
 </div>
         </main>
       </div>
